@@ -1,0 +1,15 @@
+application: jofthb
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /(index)?(\.html)?
+  script: main.py
+  secure: always
+- url: /static/(.*)\.coffee
+  static_files: static/\1.coffee
+  upload: static/(.*)\.coffee
+  mime_type: text/plain
+- url: /static
+  static_dir: static
